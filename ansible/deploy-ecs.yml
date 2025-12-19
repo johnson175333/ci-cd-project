@@ -1,0 +1,16 @@
+- name: Deploy application to ECS
+  hosts: local
+  gather_facts: no
+
+  vars_files:
+    - vars.yml
+
+  tasks:
+
+    - name: Force new ECS deployment
+      shell: |
+        aws ecs update-service \
+          --cluster {{ ecs_cluster }} \
+          --service {{ ecs_service }} \
+          --force-new-deployment \
+          --region {{ aws_region }}

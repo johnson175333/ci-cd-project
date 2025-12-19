@@ -1,0 +1,5 @@
+aws_region: ap-southeast-1
+ecs_cluster: my-ecs-cluster
+ecs_service: my-app-service
+ecr_repo: 637552828302.dkr.ecr.ap-southeast-1.amazonaws.com/my-app
+image_tag: "{{ lookup('env', 'IMAGE_TAG') }}"
